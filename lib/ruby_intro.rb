@@ -33,5 +33,31 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  def initialize(isbn, price)
+    raise ArgumentError, 'ISBN is not a non-empty string' unless isbn.is_a? String and !isbn.empty?
+    raise ArgumentError, 'Price is less than or equal to $0' unless price.is_a? Numeric and price > 0
+    @isbn  = isbn
+    @price = price.to_f
+  end
+
+  def isbn
+    @isbn
+  end
+
+  def isbn=(isbn)
+    @isbn = isbn
+  end
+
+  def price
+    @price
+  end
+
+  def price=(price)
+    @price = price
+  end
+
+  def price_as_string
+    "$#{'%.2f' % @price}"
+  end 
+
 end
